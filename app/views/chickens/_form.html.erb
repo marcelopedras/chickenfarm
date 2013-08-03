@@ -1,0 +1,28 @@
+<%= form_for([@farm, @chicken]) do |f| %>
+  <% if @chicken.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@chicken.errors.count, "error") %> prohibited this chicken from being saved:</h2>
+
+      <ul>
+      <% @chicken.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Tipo de Galinha" %><br />
+    <%= f.text_field :chicken_type %>
+  </div>
+  <div class="field">
+    <%= f.label "Ativa em" %><br />
+    <%= f.date_select :active %>
+  </div>
+    <div>
+      <%= f.hidden_field :farm_id%>
+    </div>
+  <div class="actions">
+    <%= f.submit "Enviar" %>
+  </div>
+<% end %>

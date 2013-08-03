@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  type: 
+  active: 2013-07-31 13:59:51
+
+two:
+  type: 
+  active: 2013-07-31 13:59:51

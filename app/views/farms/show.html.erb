@@ -1,0 +1,29 @@
+ <div class="content">
+  <p id="notice"><%= notice %></p>
+
+  <h1>
+    Status da Granja: <%= @farm.name %>
+  </h1>
+
+  <div class="row">
+      <div class="span2">
+        Total de galinhas: <%= @farm.amount_of_chickens %>
+      </div>
+    <div class="offset7 span3">
+      <h4>Dias em atividade: <%= @farm.active_days %></h4>
+    </div>
+    </div>
+
+  <div class="row">
+    <div class="span2">
+  <%= link_to 'Editar', edit_farm_path(@farm) %> |
+  <%= link_to 'Granjas', farms_path %>
+    </div>
+    <div class="span2 offset7">
+      <%= link_to 'Gerenciar Galinhas', farm_chickens_path(@farm), :class => 'btn btn-primary' %>
+    </div>
+  </div>
+ </div>
+
+<%= render partial: "layouts/partials/status_production", locals: {entity:@farm}%>
+

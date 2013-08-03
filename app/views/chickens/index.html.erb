@@ -1,0 +1,39 @@
+<div class="row">
+  <h1 class="span4 offset7">Granja: <%= @farm.name%></h1>
+</div>
+<h2>Galinhas</h2>
+
+<table class="table table-striped">
+  <tr>
+    <th>ID</th>
+    <th>Tipo</th>
+    <th>Ativa em</th>
+    <th>Dias ativa</th>
+    <th>Total ovos</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @chickens.each do |chicken| %>
+  <tr>
+    <td><%= chicken.id %></td>
+    <td><%= chicken.chicken_type %></td>
+    <td><%= date_format chicken.active %></td>
+    <td><%= chicken.active_days %></td>
+    <td><%= chicken.amount_of_eggs %></td>
+    <td><%= link_to 'Mostrar', farm_chicken_path(chicken.farm, chicken) %></td>
+    <td><%= link_to 'Editar', edit_farm_chicken_path(chicken.farm,chicken) %></td>
+    <td><%= link_to 'Deletar', farm_chicken_path(chicken.farm, chicken), method: :delete, data: { confirm: 'Você está certo disso?' } %></td>
+    <td><%= link_to 'Gerenciar Ovos', chicken_eggs_path(chicken), :class => "btn btn-primary"%></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nova Galinha', new_farm_chicken_path(@farm) %> |
+<%= link_to 'Granjas', farms_path%> |
+<%= link_to "Granja #{@farm.name}" , farm_path(@farm)%>
+
