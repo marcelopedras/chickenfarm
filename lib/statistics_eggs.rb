@@ -1,6 +1,6 @@
 module Eggs
 
-  #TODO Marcelo - Testar métodos
+
   def amount_of_eggs
     self.eggs.sum(:quantity)
   end
