@@ -1,0 +1,3 @@
+$('#remove_farm_<%=@farm.id%>').bind('ajax:success', function () {
+    $('#farm_<%=@farm.id%>').remove();
+});

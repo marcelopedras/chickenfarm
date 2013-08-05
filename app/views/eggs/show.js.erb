@@ -1,0 +1,13 @@
+partial = "<%= escape_javascript( render partial: 'eggs/partial/status_egg', locals: {egg: @egg, chicken: @chicken})%>";
+
+$(partial).dialog({
+    modal: true,
+    minHeight: 400,
+    minWidth: 1100,
+    show: "drop",
+    hide: "drop",
+    title: "Status Ovo",
+    close: function(effect, ui){
+        $(this).dialog('destroy').remove();
+}});
+

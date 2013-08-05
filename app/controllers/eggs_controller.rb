@@ -20,6 +20,7 @@ class EggsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @egg }
+      format.js { render action: 'show'}
     end
   end
 
@@ -49,6 +50,7 @@ class EggsController < ApplicationController
     @chicken = Chicken.find params[:chicken_id]
 
     respond_to do |format|
+      format.js {render action: "create"}
       if @egg.save
         format.html { redirect_to [@chicken,@egg], notice: 'Egg was successfully created.' }
         format.json { render json: @egg, status: :created, location: @egg }
@@ -56,6 +58,7 @@ class EggsController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @egg.errors, status: :unprocessable_entity }
       end
+
     end
   end
 
@@ -82,9 +85,13 @@ class EggsController < ApplicationController
     @egg = Egg.find(params[:id])
     @egg.destroy
 
+
     respond_to do |format|
       format.html { redirect_to chicken_eggs_url}
       format.json { head :no_content }
+      format.js {render :action => 'destroy'}
+
     end
+
   end
 end

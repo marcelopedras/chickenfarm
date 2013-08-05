@@ -1,0 +1,29 @@
+<div>
+<div>
+  <p id="notice"><%= notice %></p>
+  <div class="row">
+    <div class="span4 offset7">
+      <h1>Granja: <%= chicken.farm.name %> </h1>
+    </div>
+  </div>
+
+  <h2>
+    Status da Galinha: <%= chicken.id %>
+  </h2>
+
+  <div class="row">
+    <div class="span2">
+      Tipo: <%= chicken.chicken_type %>
+    </div>
+    <div class="offset7 span3">
+      <h4>Dias em atividade: <%= chicken.active_days %></h4>
+    </div>
+  </div>
+
+  <div class="row">
+    
+  </div>
+</div>
+
+<%= render partial: "layouts/partials/status_production", locals: {entity:chicken}%>
+  </div>

@@ -1,10 +1,10 @@
-<%= form_for([@chicken,@egg]) do |f| %>
-  <% if @egg.errors.any? %>
+<%= form_for([chicken,egg]) do |f| %>
+  <% if egg.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@egg.errors.count, "error") %> prohibited this egg from being saved:</h2>
+      <h2><%= pluralize(egg.errors.count, "error") %> prohibited this egg from being saved:</h2>
 
       <ul>
-      <% @egg.errors.full_messages.each do |msg| %>
+      <% egg.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -19,6 +19,8 @@
       <%= f.hidden_field :chicken_id%>
     </div>
   <div class="actions">
-    <%= f.submit "Enviar" %>
+    <%= f.submit "Enviar", id: "submit_egg", class: "btn btn-primary" %>
   </div>
 <% end %>
+
+

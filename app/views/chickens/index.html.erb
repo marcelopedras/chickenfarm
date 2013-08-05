@@ -17,15 +17,15 @@
   </tr>
 
 <% @chickens.each do |chicken| %>
-  <tr>
+  <tr id="chicken_<%=chicken.id%>">
     <td><%= chicken.id %></td>
     <td><%= chicken.chicken_type %></td>
     <td><%= date_format chicken.active %></td>
     <td><%= chicken.active_days %></td>
     <td><%= chicken.amount_of_eggs %></td>
-    <td><%= link_to 'Mostrar', farm_chicken_path(chicken.farm, chicken) %></td>
+    <td><%= link_to 'Mostrar', farm_chicken_path(chicken.farm, chicken), remote: true %></td>
     <td><%= link_to 'Editar', edit_farm_chicken_path(chicken.farm,chicken) %></td>
-    <td><%= link_to 'Deletar', farm_chicken_path(chicken.farm, chicken), method: :delete, data: { confirm: 'Você está certo disso?' } %></td>
+    <td><%= link_to 'Deletar', farm_chicken_path(chicken.farm, chicken), method: :delete, :remote => true, :id=> "remove_chicken_#{chicken.id}", data: { confirm: 'Você está certo disso?' } %></td>
     <td><%= link_to 'Gerenciar Ovos', chicken_eggs_path(chicken), :class => "btn btn-primary"%></td>
   </tr>
 <% end %>

@@ -7,6 +7,7 @@ class FarmsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @farms }
+      format.js {render action: "index"}
     end
   end
 
@@ -18,6 +19,7 @@ class FarmsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @farm }
+      format.js {render action: 'show'}
     end
   end
 
@@ -78,6 +80,7 @@ class FarmsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to farms_url }
       format.json { head :no_content }
+      format.js { render :action => "destroy"}
     end
   end
 end

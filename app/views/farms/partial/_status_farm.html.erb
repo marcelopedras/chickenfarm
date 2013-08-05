@@ -1,0 +1,25 @@
+<div>
+<div>
+  <p id="notice"><%= notice %></p>
+
+  <h1>
+    Status da Granja: <%= farm.name %>
+  </h1>
+
+  <div class="row">
+    <div class="span2">
+      Total de galinhas: <%= farm.amount_of_chickens %>
+    </div>
+    <div class="offset7 span3">
+      <h4>Dias em atividade: <%= farm.active_days %></h4>
+    </div>
+  </div>
+
+  <div class="row">
+
+  </div>
+</div>
+
+<%= render partial: "layouts/partials/status_production", locals: {entity:farm}%>
+</div>
+

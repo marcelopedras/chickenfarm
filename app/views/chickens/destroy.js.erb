@@ -1,0 +1,3 @@
+$('#remove_chicken_<%= @chicken.id%>').bind('ajax:success', function () {
+    $('#chicken_<%=@chicken.id%>').remove();
+});

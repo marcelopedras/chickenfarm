@@ -1,0 +1,12 @@
+partial = "<%= escape_javascript( render partial: 'chickens/partial/status_chicken', locals: {chicken: @chicken})%>";
+
+$(partial).dialog({
+    modal: true,
+    minHeight: 400,
+    width: 1200,
+    title: "Status Galinha",
+    show: "drop",
+    hide: "drop",
+    close: function(effect, ui){
+        $(this).dialog('destroy').remove();
+    }});

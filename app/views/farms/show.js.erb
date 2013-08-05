@@ -1,0 +1,12 @@
+partial = "<%= escape_javascript( render partial: 'farms/partial/status_farm', locals: {farm: @farm})%>";
+
+$(partial).dialog({
+    modal: true,
+    minHeight: 400,
+    minWidth: 1100,
+    title: "Status Granja",
+    show: "drop",
+    hide: "drop",
+    close: function(effect, ui){
+        $(this).dialog('destroy').remove();
+    }});

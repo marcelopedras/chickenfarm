@@ -1,29 +1,5 @@
 <div class="content">
-  <p id="notice"><%= notice %></p>
-  <div class="row">
-    <div class="span4 offset7">
-      <h1>Granja: <%= @chicken.farm.name %> </h1>
-    </div>
-  </div>
-
-  <h2>
-    Galinha: <%= @chicken.id %>
-  </h2>
-
-  <div class="row">
-    <div class="span3">
-      <h3>Ovos</h3>
-    </div>
-  </div>
-  <p>
-    <b>Quantidade:</b>
-    <%= @egg.quantity %>
-  </p>
-  <p>
-    <b>Data:</b>
-    <%= date_format @egg.created_at %>
-  </p>
-
+  <%= render partial: 'eggs/partial/status_egg', locals: {egg: @egg, chicken: @chicken}%>
 
   <%= link_to 'Editar', edit_chicken_egg_path(@egg) %> |
   <%= link_to 'Ovos', chicken_eggs_path(@chicken) %>

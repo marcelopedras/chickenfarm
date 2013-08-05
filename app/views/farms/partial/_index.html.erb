@@ -1,0 +1,33 @@
+<div>
+<h1>Granjas</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Nome</th>
+    <th>Data inauguração</th>
+    <th>Dias ativa</th>
+    <th>Total Galinhas</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% farms.each do |farm| %>
+      <tr id='farm_<%=farm.id%>'>
+        <td><%= farm.name %></td>
+        <td><%= date_format(farm.active) %></td>
+        <td><%= farm.active_days%></td>
+        <td><%= farm.amount_of_chickens%></td>
+        <td><%= link_to 'Mostrar', farm, remote: true %></td>
+        <td><%= link_to 'Editar', edit_farm_path(farm) %></td>
+        <td><%= link_to 'Deletar', farm, method: :delete, remote: true, id: "remove_farm_#{farm.id}", data: { confirm: 'Você está certo disso?' } %></td>
+        <td><%= link_to 'Gerenciar Galinhas', farm_chickens_path(farm), :class => "btn btn-primary"%>
+      </tr>
+  <% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nova Granja', new_farm_path %>
+</div>

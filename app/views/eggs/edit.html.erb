@@ -1,6 +1,6 @@
 <h1>Editar ovos</h1>
 
-<%= render 'form' %>
+<%= render partial: 'eggs/partial/form', locals: {egg: @egg, chicken: @chicken} %>
 
 <%= link_to 'Mostrar', chicken_egg_path(@egg) %> |
 <%= link_to 'Voltar', chicken_eggs_path(@chicken) %>
